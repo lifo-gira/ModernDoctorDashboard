@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -7,8 +6,10 @@ export default function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/Login");
-  }, []);
+    if (router) {
+      router.replace("/Login"); // Use replace() to prevent history stacking
+    }
+  }, [router]);
 
-  return null; // Prevents rendering any content before redirect
+  return <p>Redirecting...</p>; // Display message while redirecting
 }
