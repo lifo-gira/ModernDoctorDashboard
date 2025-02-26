@@ -1,6 +1,14 @@
 
-import { redirect } from "next/navigation";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  redirect("/Login");
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/Login");
+  }, []);
+
+  return null; // Prevents rendering any content before redirect
 }
